@@ -1,0 +1,66 @@
+package com.example.menuproject;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.setting_id:
+                Toast.makeText(this, "setting click", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.alaram_id:
+                Toast.makeText(this, "alaram", Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item android:title="setting"
+    android:id="@+id/setting_id"
+    android:icon="@mipmap/ic_setting"
+    app:showAsAction="always"/>
+
+    <item android:title="alaram"
+        android:id="@+id/alaram_id"
+        android:icon="@mipmap/ic_alaram"
+        app:showAsAction="ifRoom"/>
+
+</menu>
